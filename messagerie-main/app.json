@@ -1,0 +1,13 @@
+{
+  "name": "messagerie-securisee",
+  "description": "Application de messagerie sécurisée avec chiffrement de bout en bout",
+  "repository": "https://github.com/votre-username/messagerie-securisee",
+  "logo": "https://node-js-sample.herokuapp.com/node.png",
+  "keywords": ["node", "websocket", "encryption", "chat"],
+  "env": {
+    "NODE_ENV": {
+      "description": "Environment de production",
+      "value": "production"
+    }
+  }
+} 
