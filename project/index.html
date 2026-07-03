@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Messagerie Sécurisée</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="app-container">
+            <!-- En-tête -->
+            <header class="header">
+                <div class="header-content">
+                    <h1 class="app-title">
+                        <span class="lock-icon">🔒</span>
+                        Messagerie Sécurisée
+                    </h1>
+                    <div class="connection-info">
+                        <div class="encryption-status" id="encryptionStatus">
+                            <span class="status-dot"></span>
+                            <span>Chiffrement activé</span>
+                        </div>
+                        <div class="user-info">
+                            <span id="currentUser">Connexion...</span>
+                            <span class="separator">|</span>
+                            <span id="userCount">0 utilisateurs en ligne</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Zone principale -->
+            <main class="main-content">
+                <!-- Zone des messages -->
+                <div class="messages-container" id="messagesContainer">
+                    <div class="messages-list" id="messagesList">
+                        <div class="welcome-message">
+                            <h2>Bienvenue dans la messagerie sécurisée</h2>
+                            <p>Tous vos messages sont chiffrés de bout en bout.
+                                Les données ne sont pas stockées après
+                                déconnexion.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Zone de saisie -->
+                <div class="input-container">
+                    <!-- Barre d'outils -->
+                    <div class="toolbar">
+                        <button type="button" class="tool-btn" id="fileBtn"
+                            title="Partager un fichier">
+                            📎
+                        </button>
+                        <input type="file" id="fileInput" multiple hidden>
+                        <button type="button" class="tool-btn" id="voiceBtn"
+                            title="Enregistrer un message vocal">
+                            🎤
+                        </button>
+                        <button type="button" class="tool-btn encryption-btn"
+                            title="Chiffrement activé" disabled>
+                            🔐
+                        </button>
+                    </div>
+
+                    <!-- Zone de saisie de texte -->
+                    <div class="input-area">
+                        <textarea
+                            id="messageInput"
+                            placeholder="Tapez votre message..."
+                            rows="1"
+                            maxlength="1000"></textarea>
+                        <button type="button" class="send-btn" id="sendBtn"
+                            title="Envoyer le message">
+                            ➤
+                        </button>
+                    </div>
+
+                    <!-- Indicateur d'enregistrement vocal -->
+                    <div class="recording-indicator" id="recordingIndicator"
+                        style="display: none;">
+                        <div class="recording-animation">
+                            <span class="recording-dot"></span>
+                            <span>Enregistrement en cours...</span>
+                        </div>
+                        <button type="button" class="stop-recording-btn"
+                            id="stopRecordingBtn">
+                            Arrêter
+                        </button>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Zone de glisser-déposer -->
+            <div class="drop-zone" id="dropZone" style="display: none;">
+                <div class="drop-content">
+                    <div class="drop-icon">📁</div>
+                    <div class="drop-text">Relâchez pour partager le(s)
+                        fichier(s)</div>
+                </div>
+            </div>
+
+            <!-- Notifications -->
+            <div class="notifications" id="notifications"></div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="config.js"></script>
+        <script src="crypto.js"></script>
+        <script src="websocket.js"></script>
+        <script src="audio.js"></script>
+        <script src="files.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
